@@ -1,0 +1,9 @@
+x-todo-input input {
+    font-family: var(--font-system-code);
+    background-color: var(--color-fg);
+    color: var(--color-bg);
+    border-style: solid;
+    border-width: 1px;
+    padding: 0.5rem;
+    width: 100%;
+}

@@ -1,10 +1,14 @@
 :root {
     --font-system: system-ui, sans-serif;
-    --font-system-code: font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    --font-system-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 
 
-    --background-color: rgb(37, 37, 36);
-    --text-color: rgb(156, 248, 100);
+    --color-bg: rgb(37, 37, 36);
+    --background-color: var(--color-bg);
+    
+    --color-fg: rgb(156, 248, 100);
+    --text-color: var(--color-fg);
+
     --link-color: rgb(68, 177, 255);
 
 }

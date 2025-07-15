@@ -1,6 +1,11 @@
 export class StuffBannerComponent extends HTMLElement {
     connectedCallback() {
-        this.textContent = 'S.T.U.F.F.'
+        this.innerHTML = `
+            <div>
+                S.T.U.F.F.
+            </div>
+        `;
     }
 }
+
 export const registerBannerComponent = () => customElements.define('x-banner', StuffBannerComponent);
