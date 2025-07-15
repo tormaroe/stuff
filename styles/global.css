@@ -1,0 +1,16 @@
+html {
+    margin:    0 auto;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-system);
+    font-weight: normal;
+    margin: 1.5em;
+}
+
+a, a:hover {
+    color: var(--link-color);
+}
