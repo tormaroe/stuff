@@ -1,3 +1,5 @@
 # S.T.U.F.F.
 
 Static web app to manage your todo items. Implemented as a JavaScript app using no frameworks or any other dependencies other than web standards (the aproach inspired by [Plain Vanilla](https://plainvanillaweb.com/index.html)), trading off a few short term comforts for long term benefits like simplicity and being effectively zero-maintenance. Using IndexedDB browser persistence.
+
+Stuff is work in progress, but already deployed at [snazzy-pasca-97c598.netlify.app](https://snazzy-pasca-97c598.netlify.app/).
