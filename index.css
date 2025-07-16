@@ -3,3 +3,4 @@
 @import "./styles/global.css";
 @import "./components/banner/banner.css";
 @import "./components/todo-input/todo-input.css";
+@import "./components/bucket-list/bucket-list.css";

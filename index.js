@@ -1,6 +1,7 @@
 import { registerApp } from "./app/App.js";
 import { registerBannerComponent } from "./components/banner/banner.js";
 import { registerTodoInputComponent } from "./components/todo-input/todo-input.js";
+import { BucketListComponent, registerBucketListComponent } from "./components/bucket-list/bucket-list.js";
 import { useTodoStore } from "./lib/todoStore.js";
 
 const app = async () => {
@@ -9,10 +10,13 @@ const app = async () => {
     const store = useTodoStore(window.stuff);
     await store.init();
 
+    // Debugging state
     console.dir(window.stuff);
 
     registerBannerComponent();
     registerTodoInputComponent();
+    registerBucketListComponent();
+    
     registerApp();
 
     const template = document.querySelector('template#root');

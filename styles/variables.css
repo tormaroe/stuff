@@ -6,6 +6,8 @@
     --color-bg: rgb(37, 37, 36);
     --background-color: var(--color-bg);
     
+    --color-bg-raised: rgb(50, 50, 50);
+    
     --color-fg: rgb(156, 248, 100);
     --text-color: var(--color-fg);
 
