@@ -3,10 +3,11 @@ import { registerBannerComponent } from "./components/banner/banner.js";
 import { registerTodoInputComponent } from "./components/todo-input/todo-input.js";
 import { useTodoStore } from "./lib/todoStore.js";
 
-const app = () => {
+const app = async () => {
 
     window.stuff ||= {}; 
-    useTodoStore(window.stuff);
+    const store = useTodoStore(window.stuff);
+    await store.init();
 
     console.dir(window.stuff);
 
