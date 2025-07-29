@@ -11,7 +11,7 @@ function reduceResults(results) {
     const failures = results.filter(x => !x.success);
     return {
         success: failures.length === 0,
-        message: failures.length > 0 ? failures[0].message : undefined,
+        message: failures.length > 0 ? failures.map(x => x.message).join('<br>') : undefined,
         assertOkCount: results.length - failures.length,
         assertTotalCount: results.length
     };
