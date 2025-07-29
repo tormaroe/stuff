@@ -20,6 +20,17 @@ export class BucketListComponent extends HTMLElement {
             </div>
         `;
 
+        this.#currentList.forEach(item => {
+            this.querySelector(`button[name="doneButton${item.key}"]`).onclick = async () => {
+                item.done = true;
+                await window.stuff.todoStore.putItem(item);
+
+// TODO: Apply filter on done somewhere. Probably need more finegrained actions in store (to not make putItem too complicated)
+
+                this.update();
+            }
+        });
+
     }
 
     renderItems() {
@@ -34,7 +45,10 @@ export class BucketListComponent extends HTMLElement {
 
         function renderItem(item) {
             const pri = item.priority === 1 ? '‼️ ' : '';
-            return `<li>${pri}${item.text}</li>`;
+            return `
+                <li>${pri}${item.text}
+                    <button name="doneButton${item.key}" class="button green" role="button">DONE</button>
+                </li>`;
         }
     }
 }
