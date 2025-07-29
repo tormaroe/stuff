@@ -1,5 +1,5 @@
 import { comparePriority } from "../lib/todoItemHelpers.js";
-import { assert } from "./asserts.js";
+import { should } from "./asserts.js";
 
 function todo_items_should_sort_by_priority() {
     const given_items = [
@@ -12,13 +12,13 @@ function todo_items_should_sort_by_priority() {
 
     given_items.sort(comparePriority);
 
-    return assert.all(
-        assert.equal(given_items[0].id, 1, "ID of 1st item"),
-        assert.equal(given_items[1].id, 5, "ID of 2nd item"),
-        assert.equal(given_items[2].id, 2, "ID of 3rd item"),
-        assert.equal(given_items[3].id, 4, "ID of 4th item"),
-        assert.equal(given_items[4].id, 3, "ID of 5th item"),
-    );    
+    return should(assert => {
+        assert.equal(given_items[0].id, 1, "ID of 1st item");
+        assert.equal(given_items[1].id, 5, "ID of 2nd item");
+        assert.equal(given_items[2].id, 2, "ID of 3rd item");
+        assert.equal(given_items[3].id, 4, "ID of 4th item");
+        assert.equal(given_items[4].id, 3, "ID of 5th item");
+    });    
 }
 
 export function addTodoItemTests(collection) {

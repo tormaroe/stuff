@@ -39,6 +39,7 @@ class TestTable extends HTMLElement {
                 <tr>
                     <th>Test name</th>
                     <th>Status</th>
+                    <th>Asserts</th>
                     <th>Details</th>
                 </tr>
             </table>
@@ -48,13 +49,10 @@ class TestTable extends HTMLElement {
 
         allTests.forEach(t => {
             const row = tableElm.insertRow(-1);
-            const nameCell = row.insertCell(0);
-            const statusCell = row.insertCell(1);
-            const detailsCell = row.insertCell(2);
-
-            nameCell.innerHTML = t.name.replaceAll('_', ' ');
-            statusCell.innerHTML = '..';
-            detailsCell.innerHTML = '..';
+            row.insertCell(0).innerHTML = t.name.replaceAll('_', ' ');
+            row.insertCell(1).innerHTML = '..';
+            row.insertCell(2).innerHTML = '&nbsp;';
+            row.insertCell(3).innerHTML = '&nbsp;';
         });
 
         tableElm.setResult = (index, result) => {
@@ -63,8 +61,10 @@ class TestTable extends HTMLElement {
                 ? '<span class="success">🗹</span>' 
                 : '<span class="failure">☒</span>';
             
+            row.cells[2].innerHTML = `${result.assertOkCount} / ${result.assertTotalCount}`;
+            
             if (result.message) {
-                row.cells[2].innerHTML = result.message;
+                row.cells[3].innerHTML = result.message;
             }
         };
 
