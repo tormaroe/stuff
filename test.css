@@ -1,5 +1,6 @@
 x-test-table table {
     border-spacing: 3px;
+    color: rgb(99, 182, 255);
 }
 
 x-test-table th {
@@ -15,4 +16,12 @@ x-test-table td {
     padding-left: 6px;
     padding-right: 6px;
     padding-bottom: 6px;
+}
+
+x-test-table .success {
+    color: var(--text-color);
+}
+
+x-test-table .failure {
+    color: var(--error-color);
 }

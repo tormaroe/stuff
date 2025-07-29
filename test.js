@@ -1,14 +1,13 @@
-
-function canary_test() {
-    return {
-        success: true
-    };
-}
+import { addTodoItemTests } from "./tests/todoItemTests.js";
 
 const allTests = [
-    canary_test,
-    canary_test
-];
+    addTodoItemTests
+].reduce((acc, testset) => {
+    testset(acc);
+    return acc;
+}, []);
+
+const DELAY_BETWEEN_TESTS = 100;
 
 function runTest(testIndex, tableElm) {
     if (testIndex < allTests.length) {
@@ -27,7 +26,7 @@ function runTest(testIndex, tableElm) {
             });
         }
 
-        window.setTimeout(runTest, 0, testIndex + 1, tableElm);
+        window.setTimeout(runTest, DELAY_BETWEEN_TESTS, testIndex + 1, tableElm);
     } else {
         console.log('no more tests to run');
     }
@@ -59,20 +58,17 @@ class TestTable extends HTMLElement {
         });
 
         tableElm.setResult = (index, result) => {
-            console.log(index);
-            console.dir(tableElm.rows);
             const row = tableElm.rows[index + 1]; // Add one for header
-            console.log(row);
             row.cells[1].innerHTML = result.success 
-                ? 'passed'
-                : 'FAILED';
+                ? '<span class="success">🗹</span>' 
+                : '<span class="failure">☒</span>';
             
             if (result.message) {
                 row.cells[2].innerHTML = result.message;
             }
         };
 
-        setTimeout(runTest, 0, 0, tableElm);
+        setTimeout(runTest, DELAY_BETWEEN_TESTS, 0, tableElm);
     }
 
 }

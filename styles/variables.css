@@ -2,15 +2,11 @@
     --font-system: system-ui, sans-serif;
     --font-system-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 
-
     --color-bg: rgb(37, 37, 36);
     --background-color: var(--color-bg);
-    
     --color-bg-raised: rgb(50, 50, 50);
-    
     --color-fg: rgb(156, 248, 100);
     --text-color: var(--color-fg);
-
     --link-color: rgb(68, 177, 255);
-
+    --error-color: rgb(253, 42, 42);
 }
