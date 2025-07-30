@@ -54,7 +54,7 @@ class TestTable extends HTMLElement {
                 ? '<span class="success">🗹</span>' 
                 : '<span class="failure">☒</span>';
             
-            row.cells[2].innerHTML = `${result.assertOkCount} / ${result.assertTotalCount}`;
+            row.cells[2].innerHTML = `${result.assertOkCount || '?'} / ${result.assertTotalCount || '?'}`;
             
             if (result.message) {
                 row.cells[3].innerHTML = result.message;
