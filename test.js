@@ -1,17 +1,9 @@
-import { addTodoItemTests } from "./tests/todoItemTests.js";
-
-const allTests = [
-    addTodoItemTests
-].reduce((acc, testset) => {
-    testset(acc);
-    return acc;
-}, []);
 
 const DELAY_BETWEEN_TESTS = 100;
 
 function runTest(testIndex, tableElm) {
-    if (testIndex < allTests.length) {
-        const test = allTests[testIndex];
+    if (testIndex < window.stuff.tests.length) {
+        const test = window.stuff.tests[testIndex];
         console.log(`running test ${testIndex}: ${test.name}`);
 
         try {
@@ -47,12 +39,13 @@ class TestTable extends HTMLElement {
         
         const tableElm = this.querySelector('table');
 
-        allTests.forEach(t => {
+        window.stuff.tests.forEach(t => {
             const row = tableElm.insertRow(-1);
             row.insertCell(0).innerHTML = t.name.replaceAll('_', ' ');
             row.insertCell(1).innerHTML = '..';
             row.insertCell(2).innerHTML = '&nbsp;';
             row.insertCell(3).innerHTML = '&nbsp;';
+            row.cells[1].classList.add('status');
         });
 
         tableElm.setResult = (index, result) => {
